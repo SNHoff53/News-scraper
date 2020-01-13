@@ -1,6 +1,6 @@
 var express = require("express");
 var mongoose = require("mongoose");
-var logger = require("morgan");
+// var logger = require("morgan");
 
 // === Our scraping tools ===
 var axios = require("axios");
@@ -12,8 +12,10 @@ var db = require("./models");
 var PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 
-// === Using morgan logger for logging requests ===
-app.use(logger("dev"));
+// === Configure middleware ===
+
+// // === Using morgan logger for logging requests ===
+// app.use(logger("dev"));
 
 // === Parsing application body as a JSON ===
 app.use(express.urlencoded({ extended: true }));

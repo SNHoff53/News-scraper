@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 // === Saving a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
+// === Using the Schema constructor, we create a new NotesSchema ===
 var NotesSchema = new Schema ({
     title: String,
     body: String
