@@ -43,11 +43,11 @@ app.listen(PORT, function() {
   // === A GET route for scrpaing the website === 
   app.get("/scrape", function(req, res) {
       // === First we grab the body of the html with axios ===
-      axios.get("https://www.seattletimes.com/").then(function(response) {
+      axios.get("https://www.wsj.com/").then(function(response) {
           // === Then we load that into cheerio and save it to $ for a shorthand selector ===
           var $ = cheerio.load(response.data);
             // === Now we grab every h2 tag within an article tag === 
-          $("article h2").each(function(i, element) {
+          $("article a").each(function(i, element) {
             // === Save the h2 info in an empty result object === 
             var result = {};
 
