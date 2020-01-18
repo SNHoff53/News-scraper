@@ -59,7 +59,7 @@ app.listen(PORT, function() {
                 .children("a")
                 .text();
             result.link = $(this)
-                .children("a")
+                .children("p")
                 .attr("href");
 
             // === Create a new NewsArticles using the 'result' object built from scraping ===
