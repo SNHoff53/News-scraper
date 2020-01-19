@@ -50,7 +50,7 @@ app.listen(PORT, function() {
           // === Then we load that into cheerio and save it to $ for a shorthand selector ===
           var $ = cheerio.load(response.data);
             // === Now we grab every h2 tag within an article tag === 
-          $("h13.WSJTheme--headline--19_2KfxG undefined WSJTheme--heading-15--1bstVUTm typography--serif-display--2lARvEel").each(function(i, element) {
+          $("h13[class^='WSJTheme--headline']").each(function(i, element) {
             // === Save the h2 info in an empty result object === 
             var result = [];
 
