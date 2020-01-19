@@ -3,8 +3,8 @@ var mongoose = require("mongoose");
 // var logger = require("morgan");
 
 // === Our scraping tools ===
-var axios = require("axios");
 var cheerio = require("cheerio");
+var axios = require("axios");
 
 // === Requiring all models and initializing express ===
 var app = express();
@@ -50,16 +50,16 @@ app.listen(PORT, function() {
           // === Then we load that into cheerio and save it to $ for a shorthand selector ===
           var $ = cheerio.load(response.data);
             // === Now we grab every h2 tag within an article tag === 
-          $("article a").each(function(i, element) {
+          $("h13.WSJTheme--headline--19_2KfxG undefined WSJTheme--heading-15--1bstVUTm typography--serif-display--2lARvEel").each(function(i, element) {
             // === Save the h2 info in an empty result object === 
-            var result = {};
+            var result = [];
 
             // === Add text and href of everylink, and save them as properties of the result object ===
             result.title = $(this)
-                .children("a")
+                .children("h13")
                 .text();
             result.link = $(this)
-                .children("p")
+                .children(".class href")
                 .attr("href");
 
             // === Create a new NewsArticles using the 'result' object built from scraping ===
@@ -85,6 +85,7 @@ app.listen(PORT, function() {
         .then(function(dbNewsArticle) {
             // === If we were successful in finding NewsArticle, send them back to client ===
             res.json(dbNewsArticle);
+            console.log(storingArticle);
         })
         .catch(function(err) {
             // === If an error occurred, send it to the client ===
