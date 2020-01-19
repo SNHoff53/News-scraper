@@ -55,12 +55,13 @@ app.listen(PORT, function() {
             var result = [];
 
             // === Add text and href of everylink, and save them as properties of the result object ===
-            result.title = $(this)
-                .children("h13")
-                .text();
-            result.link = $(this)
-                .children(".class href")
-                .attr("href");
+            result.title = $(this).children("h13").text();
+            result.link = $(this).children(".class href").attr("href");
+
+            result.push({
+                title: title,
+                link: link
+            });
 
             // === Create a new NewsArticles using the 'result' object built from scraping ===
             db.NewsArticle.create(result)
