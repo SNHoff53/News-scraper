@@ -8,7 +8,7 @@ $.getJSON("/NewsArticle", function(data) {
 });
 
 // === When someone click a p tag ===
-$(document).on("click", "p", function() {
+$(document).on("click", "h13", function() {
     // === Empty the notes from the note section ===
     $("#notes").empty();
     // === Saving the id from the p tag
